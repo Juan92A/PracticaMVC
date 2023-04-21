@@ -17,7 +17,16 @@ namespace PracticaMVC.Controllers
         }
         [HttpPost]
         public async Task<ActionResult> Create([Bind("nombre,descripcion,tipo_quipo_id,marca_id,modelo,anio_compra,costo,vida_util,estado_equipo_id")] Equipos equipo) {
-           
+            try
+            {
+                _context.Add(equipo);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
             return View("Index");
         }
     }

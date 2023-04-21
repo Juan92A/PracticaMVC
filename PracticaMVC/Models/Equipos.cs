@@ -25,6 +25,6 @@ namespace PracticaMVC.Models
 
         public int? estado_equipo_id { get; set; }
 
-        public string? estado { get; set; }
+        public string estado { get; set; } = "A";
     }
 }
