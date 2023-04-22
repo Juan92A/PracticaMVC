@@ -1,0 +1,112 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    IEnumerable<string> strList = new List<string> { "POO", "TW", "MAT3", "FIS1" };
+}
+
+<div>
+    <h1 class="">Helper</h1>
+    @using (Html.BeginForm("Index", "Usuarios", FormMethod.Post))
+    {
+        <div class="from-grup row mb-4">
+            <div class="col-4">
+                @Html.Label("Nombre")
+
+            </div>
+            <div class="col-4">
+                @Html.TextBox("txtUserName", "", new {@class="form-control"})
+            </div>
+
+        </div>
+        <div class="row pt-2">
+            <div class="col-4">
+                @Html.Label("Contraseña")
+
+            </div>
+            <div class="col-4">
+                @Html.Password("Contrasena","", new{@class="form-control"})
+            </div>
+
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-4">
+                @Html.Label("Genero")
+
+            </div>
+            <div class="col-4">
+                @Html.RadioButton("Genero", "Masculino", true, new{id="masculino"})
+                Masculino
+                @Html.RadioButton("Genero", "Femenino", false, new{id="femenino"})
+                Femenino
+
+            </div>
+
+        </div>
+        <div class="row pt-2">
+            <div class="col-4">
+                @Html.Label("Informacion")
+
+            </div>
+            <div class="col-4">
+                @Html.TextArea("Direccion", "Ingrese su direccion",
+            new{@class="form-control", id= "idDireccion"})
+            </div>
+
+        </div>
+        <div class="row pt-2">
+            <div class="col-4">
+                @Html.Label("Pastiempos")
+
+            </div>
+            <div class="col-4">
+
+                @Html.CheckBox("Bailando")Pasatiempo
+                @Html.CheckBox("Correr")Correr
+                @Html.CheckBox("Escalar")Escalar
+                @Html.CheckBox("Pelicas")Peliculas
+            </div>
+
+        </div>
+        <div class="row pt-2">
+            <div class="col-4">
+                @Html.Label("Cursos")
+
+            </div>
+            <div class="col-4">
+                @Html.DropDownList("ddlCurso", new SelectList(strList,
+            strList.FirstOrDefault()), "--Seleccionar curso ----" )
+            </div>
+
+        </div>
+        <div class="row pt-2">
+            <div class="col-4">
+                @Html.Label("Conocimientos")
+
+            </div>
+            <div class="col-4">
+                @Html.ListBox("Seleccionar habilidades", new List<SelectListItem>{
+            new SelectListItem {Text = "C #", Value = "1"},new SelectListItem {Text = "ASP.NET", Value = "2"},
+            new SelectListItem {Text = "ASP.NET Core", Value = "3"},
+            new SelectListItem {Text = "Azure", Value = "4"}
+            })
+
+            </div>
+
+        </div>
+        <div class="row pt-2">
+            <hr />
+            <div class="offset-sm-4 col-sm-4">
+                <input type="submit" class="btn btn-success form-control" value="Enviar datos" />
+               
+            </div>
+            <br>
+            <hr />
+        </div>
+    }
+  
+
+
+
+</div>
